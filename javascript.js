@@ -15,12 +15,14 @@ $(document).ready(function () {
 		var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=84afad745f424c2a9fa2f4e7ea4b4a5e&q="+searchTerm;
 
 		// Validate Year variables
-		startYear += "0101";
-		endYear += "1231";
-		if (startYear != "")
+		if (startYear != ""){
+			startYear += "0101";
 			queryURL += "&begin_date=" + startYear;
-		if (endYear != "")
+		}
+		if (endYear != ""){
+			endYear += "1231";
 			queryURL += "&end_date=" + endYear;
+		}
 
 		console.log(queryURL);
 
@@ -43,7 +45,7 @@ $(document).ready(function () {
 				var headLine = $("<h3>").text(value.headline.main);
 				article.append(headLine);
 
-				var byLine = $("<h5>").text(value.by_line.original);
+				var byLine = $("<h5>").text(value.byline.original);
 				article.append(byLine);
 
 				var section = $("<h5>").text("Section: " + value.section);
