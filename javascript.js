@@ -2,7 +2,7 @@
 // NYT API KEY: 84afad745f424c2a9fa2f4e7ea4b4a5e
 // Function for Submit
 
-$(docment).ready(function () {
+$(document).ready(function () {
 	$("#search").on("submit", function(event) {
 		event.preventDefault();
 		console.log(event.currentTarget);
