@@ -24,6 +24,39 @@ $(docment).ready(function () {
 
 		$.ajax({url: queryURL, method: "GET"}).done(function(result) {
 			console.log(result);
+
+			var resultDocs = result.response.docs;
+			for (var i =0; i<numRecords; i++) {
+				var value = resultDocs[i];
+				// var headLine = value.headline.main;
+				// var byLine = value.by_line.original;
+				// var section = "Section: " + value.section;
+				// var pubDate = value.pub_date;
+				// var url = value.web_rul;
+
+				//  Create the elements
+
+				var article = new $("<div>");
+				article.addClass("article");
+				var headLine = new $("<h3>").text(value.headline.main);
+				article.append(headLine);
+
+				var byLine = new $("<h5>").text(value.by_line.original);
+				article.append(byLine);
+
+				var section = new $("<h5>").text("Section: " + value.section);
+				article.append(section);
+
+				var pubDate = new $("<h5>").text(value.pub_date);
+				article.append(pubDate);
+
+				var url = new $("<a>").text(value.web_url);
+				url.attr("href", value.web_url);
+				url.attr("target", "_blank");
+				article.append(url);
+
+				$("#display").append(article);
+			};
 			
 		});
 	});
