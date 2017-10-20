@@ -2,7 +2,6 @@
 // NYT API KEY: 84afad745f424c2a9fa2f4e7ea4b4a5e
 // Function for Submit
 
-var a
 $(docment).ready(function () {
 	$("#search").on("submit", function(event) {
 		event.preventDefault();
@@ -28,11 +27,6 @@ $(docment).ready(function () {
 			var resultDocs = result.response.docs;
 			for (var i =0; i<numRecords; i++) {
 				var value = resultDocs[i];
-				// var headLine = value.headline.main;
-				// var byLine = value.by_line.original;
-				// var section = "Section: " + value.section;
-				// var pubDate = value.pub_date;
-				// var url = value.web_rul;
 
 				//  Create the elements
 
